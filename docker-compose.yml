@@ -1,0 +1,7 @@
+services:
+  definity-guide:
+    build: .
+    container_name: definity-guide
+    ports:
+      - "3000:80"
+    restart: unless-stopped
