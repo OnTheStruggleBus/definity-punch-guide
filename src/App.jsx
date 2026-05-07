@@ -1045,14 +1045,6 @@ export default function PunchGuide() {
           {/* ── MDF Pair Map tab ── */}
           {tab==="mdfmap"&&(
             <div>
-              <SHdr title="MDF PAIR MAP — AMPHENOL 25-PAIR USAGE BY CARD TYPE"/>
-              <MdfPairMap/>
-            </div>
-          )}
-
-          {/* ── MDF Pair Map tab ── */}
-          {tab==="mdfmap"&&(
-            <div>
               <SHdr title="MDF PAIR MAP — AMPHENOL 25-PAIR CROSS-CONNECT REFERENCE"/>
               <div style={{padding:16,display:'flex',flexDirection:'column',gap:14}}>
 
@@ -1099,7 +1091,7 @@ export default function PunchGuide() {
                     <div style={{fontSize:9,color:'#546E7A',letterSpacing:1.5,marginBottom:3}}>PORTS</div>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif",
                       fontSize:20,fontWeight:700,color:'#E3F2FD'}}>{selCard.ports}</div>
-                    <div style={{fontSize:10,color:'#90A4AE'}}>{selCard.pairsPerPort} pair{selCard.pairsPerPort>1?'s':''}/port</div>
+                    <div style={{fontSize:10,color:'#90A4AE'}}>{(()=>{const pp=selCard.pairs.filter(p=>p&&p.type!=='GND').length/selCard.ports;return `${pp} pair${pp>1?'s':''}/port`;})()}</div>
                   </div>
                   <div>
                     <div style={{fontSize:9,color:'#546E7A',letterSpacing:1.5,marginBottom:3}}>PAIRS USED</div>
