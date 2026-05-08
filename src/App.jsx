@@ -559,6 +559,8 @@ export default function PunchGuide() {
   const [startPort,setStartPort]=useState(1);
   const [tab,setTab]=useState("jack");
   const [selCard,setSelCard]=useState(CARD_MAPS[0]);
+  const activePairs = selCard.pairs.filter(p=>p&&p.type!=='GND').length;
+  const pairsPerPort = activePairs / selCard.ports;
   const at=PORT_TYPES.find(p=>p.id===portType);
 
   const offset=(startPort-1)*at.pairsUsed;
@@ -959,13 +961,13 @@ export default function PunchGuide() {
                     <div style={{fontSize:9,color:'#546E7A',letterSpacing:1.5,marginBottom:3}}>PORTS</div>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif",
                       fontSize:20,fontWeight:700,color:'#E3F2FD'}}>{selCard.ports}</div>
-                    <div style={{fontSize:10,color:'#90A4AE'}}>{(()=>{const pp=selCard.pairs.filter(p=>p&&p.type!=='GND').length/selCard.ports;return `${pp} pair${pp>1?'s':''}/port`;})()}</div>
+                    <div style={{fontSize:10,color:'#90A4AE'}}>{pairsPerPort} pair{pairsPerPort>1?'s':''}/port</div>
                   </div>
                   <div>
                     <div style={{fontSize:9,color:'#546E7A',letterSpacing:1.5,marginBottom:3}}>PAIRS USED</div>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif",
                       fontSize:20,fontWeight:700,color:'#E3F2FD'}}>
-                      {selCard.pairs.filter(p=>p&&p.type!=='GND').length}
+                      {activePairs}
                     </div>
                     <div style={{fontSize:10,color:'#90A4AE'}}>{selCard.desc}</div>
                   </div>
