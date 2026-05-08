@@ -25,4 +25,4 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_URL: /definity-punch-guide/
+          VITE_BASE_URL: /${{ github.event.repository.name }}/
