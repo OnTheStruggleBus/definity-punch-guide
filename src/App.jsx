@@ -674,8 +674,8 @@ export default function PunchGuide() {
           {tab==="jack"&&(
             <div>
               <SHdr title="CAT5E SURFACE JACK — T568B PUNCHDOWN"/>
-              <div style={{display:"grid",gridTemplateColumns:"210px 1fr",gap:0}}>
-                <div style={{padding:18,display:"flex",alignItems:"center",
+              <div style={{display:"grid",gridTemplateColumns:"260px 1fr",gap:0}}>
+                <div style={{padding:"18px 12px",display:"flex",alignItems:"flex-start",
                   justifyContent:"center",borderRight:"1px solid #1E2A35"}}>
                   <JackDiagram at={at}/>
                 </div>
