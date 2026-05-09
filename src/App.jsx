@@ -108,19 +108,19 @@ const PORT_TYPES = [
     color:"#00695C", lightColor:"#E0F7FA", borderColor:"#00897B",
     pins:[3,4,5,6], pairsUsed:2,
     pairs:[
-      "Blue pair (25pr W-BL/BL-W) — pins 4 & 5 = PXT/PXR (PBX transmit)",
-      "Green pair translated (25pr W-O/O-W) — pins 3 & 6 = TXT/TXR (Terminal transmit)",
+      "Blue pair (25pr W-BL/BL-W) — pin 5 (W/Bu) = PXT · pin 4 (Bu/W) = PXR (PBX transmit)",
+      "Green pair translated (25pr W-O/O-W) — pin 3 (W/Gn) = TXT · pin 6 (Gn/W) = TXR (Terminal transmit)",
     ],
     signals:[
-      "Pin 5 W/Bu = PXR (PBX transmit Ring) ← Amphenol W-BL pair 1 tip",
-      "Pin 4 Bu/W = PXT (PBX transmit Tip) ← Amphenol BL-W pair 1 ring",
+      "Pin 5 W/Bu = PXT (PBX transmit Tip) ← Amphenol W-BL pair 1 tip",
+      "Pin 4 Bu/W = PXR (PBX transmit Ring) ← Amphenol BL-W pair 1 ring",
       "Pin 3 W/Gn = TXT (Terminal transmit Tip) ← Amphenol W-O pair 2 tip",
       "Pin 6 Gn/W = TXR (Terminal transmit Ring) ← Amphenol O-W pair 2 ring",
     ],
-    note:"TN556C/D — 12 circuits/card · NO pair skipping · Max 1900ft @ 24AWG · ⚠ 100Ω terminating resistor required (440A4 or 110RA1-12). Source: Avaya 555-245-773 Issue 4.1 Jun 2005 (TN556D — C variant assumed equivalent). Signal labels corrected from community source.",
+    note:"TN556C/D — 12 circuits/card · NO pair skipping · Max 1900ft @ 24AWG · ⚠ 100Ω terminating resistor required (440A4 or 110RA1-12). Source: Avaya 555-245-773 Issue 4.1 Jun 2005 (TN556D — C variant assumed equivalent).",
     conductors:[
-      {label:"PXR", wire:"W/Bu", jackPin:5, role:"tip",  pair:"Blue (25pr: W-BL)"},
-      {label:"PXT", wire:"Bu/W", jackPin:4, role:"ring", pair:"Blue (25pr: BL-W)"},
+      {label:"PXT", wire:"W/Bu", jackPin:5, role:"tip",  pair:"Blue (25pr: W-BL)"},
+      {label:"PXR", wire:"Bu/W", jackPin:4, role:"ring", pair:"Blue (25pr: BL-W)"},
       {label:"TXT", wire:"W/Gn", jackPin:3, role:"tip",  pair:"Green (25pr: W-O)"},
       {label:"TXR", wire:"Gn/W", jackPin:6, role:"ring", pair:"Green (25pr: O-W)"},
     ],
@@ -836,8 +836,8 @@ export default function PunchGuide() {
                     </div>
                     <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",gap:8,alignItems:"center"}}>
                       {[
-                        {left:"W-BL (PXR)",  leftHex:"#1E3A5F",  leftStr:"#1565C0", right:"W/Bu → Pin 5", rightHex:"#1E3A5F", rightStr:"#1565C0"},
-                        {left:"BL-W (PXT)", leftHex:"#1565C0",  leftStr:null,      right:"Bu/W → Pin 4", rightHex:"#1565C0", rightStr:null},
+                        {left:"W-BL (PXT)",  leftHex:"#1E3A5F",  leftStr:"#1565C0", right:"W/Bu → Pin 5", rightHex:"#1E3A5F", rightStr:"#1565C0"},
+                        {left:"BL-W (PXR)", leftHex:"#1565C0",  leftStr:null,      right:"Bu/W → Pin 4", rightHex:"#1565C0", rightStr:null},
                         {left:"W-O (TXT)",   leftHex:"#2C1810",  leftStr:"#E65100", right:"W/Gn → Pin 3", rightHex:"#1A2E1A", rightStr:"#1B5E20"},
                         {left:"O-W (TXR)",  leftHex:"#E65100",  leftStr:null,      right:"Gn/W → Pin 6", rightHex:"#1B5E20", rightStr:null},
                       ].map((r,i)=>(
@@ -858,7 +858,7 @@ export default function PunchGuide() {
                     </div>
                     <div style={{marginTop:8,fontSize:9,color:"#546E7A",lineHeight:1.7}}>
                       ⚐ Source: Avaya 555-245-773 Issue 4.1 Jun 2005 (TN556D). TN556C assumed equivalent.<br/>
-                      PXR/PXT = PBX transmit pair (blue pair, pins 4/5) · TXT/TXR = Terminal transmit pair (green pair, pins 3/6)
+                      PXT/PXR = PBX transmit pair (blue pair: pin 5=PXT / pin 4=PXR) · TXT/TXR = Terminal transmit pair (green pair: pin 3=TXT / pin 6=TXR)
                     </div>
                     <div style={{marginTop:8,background:"#7B1A1A33",border:"1px solid #EF535388",
                       borderRadius:4,padding:"8px 10px",fontSize:10,color:"#EF9A9A",lineHeight:1.8}}>
